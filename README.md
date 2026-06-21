@@ -109,13 +109,7 @@ end-to-end): `5404` three failed sudo attempts, `5503` PAM login failed, `5557` 
 failed, `5902` new user added, `5903` user/group deleted, `31101` web server 4xx error,
 `510` host-based anomaly (rootcheck).
 
-**Brute-force detection — rule 100100 → MITRE T1110 (Credential Access):**
 
-![Rule 100100 firing on repeated failed logins](screenshots/rule-100100-bruteforce.png)
-
-**Web-scanning detection — rule 100101 → MITRE T1595 (Reconnaissance):**
-
-![Rule 100101 firing on a burst of HTTP 4xx errors](screenshots/rule-100101-webscan.png)
 
 ---
 
