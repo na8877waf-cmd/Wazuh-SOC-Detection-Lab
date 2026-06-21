@@ -8,7 +8,6 @@ each rule validated by safely simulating the attack and confirming the alert fir
 > **What this demonstrates:** the core detection-engineering loop a SOC analyst does daily —
 > collect telemetry → simulate a technique → detect it → tune the rule → document it.
 
-![Wazuh dashboard overview — one active agent and the 24-hour alert summary by severity](screenshots/dashboard.png)
 
 ---
 
