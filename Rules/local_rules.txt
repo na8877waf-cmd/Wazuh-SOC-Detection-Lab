@@ -1,0 +1,34 @@
+<!--
+  Custom detection rules for the Wazuh SOC Detection Lab
+  Location on the Wazuh server: /var/ossec/etc/rules/local_rules.xml
+  Custom IDs use the 1001xx range to avoid clashing with bundled sample rules.
+  Apply with: sudo systemctl restart wazuh-manager
+-->
+
+<group name="local,authentication,">
+
+  <!-- Rule 1: Brute-force authentication (MITRE T1110)
+       Fires when failed password checks (5557) repeat 4+ times within 120s. -->
+  <rule id="100100" level="10" frequency="4" timeframe="120">
+    <if_matched_sid>5557</if_matched_sid>
+    <description>Multiple failed login attempts - possible brute force (custom)</description>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+</group>
+
+<group name="local,web,">
+
+  <!-- Rule 2: Web scanning / HTTP 4xx burst (MITRE T1595)
+       Fires when web 4xx errors (31101) repeat 5+ times within 120s. -->
+  <rule id="100101" level="10" frequency="5" timeframe="120">
+    <if_matched_sid>31101</if_matched_sid>
+    <description>Possible web scanning - burst of HTTP 4xx errors (custom)</description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+
+</group>
